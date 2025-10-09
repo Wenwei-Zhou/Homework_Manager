@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { TbHome, TbNotebook, TbCalendarMonth, TbTargetArrow, TbSettingsFilled } from "react-icons/tb";
-import Avatar from '@mui/material/Avatar';
+import { TbHome, TbNotebook, TbCalendarMonth, TbChartHistogram, TbSettingsFilled } from "react-icons/tb";
+// import Avatar from '@mui/material/Avatar';
 import Logo from './assets/logo.ico';
 import './Sidebar.css';
 
@@ -11,9 +11,9 @@ const Sidebar = () => {
 
   const menuItems = [
     { path: '/', icon: <TbHome/>, label: 'home' },
-    { path: '/homework', icon: <TbNotebook/>, label: 'homework' },
+    { path: '/course', icon: <TbNotebook/>, label: 'course' },
     { path: '/timetable', icon: <TbCalendarMonth/>, label: 'timetable' },
-    { path: '/target', icon: <TbTargetArrow/>, label: 'target' },
+    { path: '/score', icon: <TbChartHistogram/>, label: 'score' },
   ];
 
   const handleItemClick = (id) => {
@@ -45,8 +45,9 @@ const Sidebar = () => {
       </nav>
 
       <div className="sidebar-footer">
-          <span className="menu-icon"><TbSettingsFilled/></span>
-          <Avatar>S</Avatar>
+        <button className="setting-button">
+          <span className="setting-icon"><TbSettingsFilled/></span>
+        </button>
       </div>
     </div>
   );
