@@ -1,13 +1,21 @@
+import { BrowserRouter, Routes, Route } from 'react-router';
 import './App.css'
-import Sidebar from './Sidebar.jsx'
-import Logo from './assets/logo.jsx'
+import {routes} from './Routes/Routes.js'
+// import Home from './Home/Home.jsx';
 
 function App() {
 
   return (
-    <div style={{ display: 'flex' }}>
-      <Sidebar />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        {routes.map((route) => {
+          const Component = route.component;
+           return <Route key={route.path} path={route.path} element={<Component />} />
+        })}
+      </Routes>
+    </BrowserRouter>
+    // <Home />
+    
   )
 }
 

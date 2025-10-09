@@ -1,3 +1,9 @@
+import Sidebar from '../Sidebar.jsx'
+
 export default function Target() {
-    return
+    return (
+        <div>
+            <Sidebar />
+        </div>
+    )
 }
