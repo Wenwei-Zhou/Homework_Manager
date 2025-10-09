@@ -1,22 +1,19 @@
-import React, { useState } from 'react';
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined';
-import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
-import { TbTargetArrow, TbSettingsFilled } from "react-icons/tb";
+import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import { TbHome, TbNotebook, TbCalendarMonth, TbTargetArrow, TbSettingsFilled } from "react-icons/tb";
 import Avatar from '@mui/material/Avatar';
 import Logo from './assets/logo.ico';
 import './Sidebar.css';
 
 const Sidebar = () => {
-  const [activeItem, setActiveItem] = useState('dashboard');
+  const [activeItem, setActiveItem] = useState('');
   // const [isCollapsed, setIsCollapsed] = useState(false);
 
   const menuItems = [
-    { id: 'home', icon: <HomeOutlinedIcon/>, label: 'home' },
-    { id: 'homework', icon: <MenuBookOutlinedIcon/>, label: 'homework' },
-    { id: 'timetable', icon: <CalendarMonthOutlinedIcon/>, label: 'timetable' },
-    { id: 'target', icon: <TbTargetArrow/>, label: 'target' },
-    { id: 'setting', icon: <TbSettingsFilled/>, label: 'setting' },
+    { path: '/', icon: <TbHome/>, label: 'home' },
+    { path: '/homework', icon: <TbNotebook/>, label: 'homework' },
+    { path: '/timetable', icon: <TbCalendarMonth/>, label: 'timetable' },
+    { path: '/target', icon: <TbTargetArrow/>, label: 'target' },
   ];
 
   const handleItemClick = (id) => {
@@ -32,18 +29,23 @@ const Sidebar = () => {
         <ul className="menu-list">
           {menuItems.map((item) => (
             <li
-              key={item.id}
-              className={`menu-item ${activeItem === item.id ? 'active' : ''}`}
-              onClick={() => handleItemClick(item.id)}
+              key={item.path}
             >
-              <span className="menu-icon">{item.icon}</span>
-              {/* {!isCollapsed && <span className="menu-label">{item.label}</span>} */}
+              <NavLink
+                to={item.path}
+                className={`menu-item ${activeItem === item.path ? 'active' : ''}`}
+                onClick={() => handleItemClick(item.path)}
+              >
+                <span className="menu-icon">{item.icon}</span>
+              </NavLink>
+              
             </li>
           ))}
         </ul>
       </nav>
 
       <div className="sidebar-footer">
+          <span className="menu-icon"><TbSettingsFilled/></span>
           <Avatar>S</Avatar>
       </div>
     </div>
