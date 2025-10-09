@@ -1,7 +1,7 @@
 import Home from '../Home/Home.jsx'
-import Homework from '../Homework/Homework'
+import Course from '../Course/Course.jsx'
 import Timetable from '../Timetable/Timetable'
-import Target from '../Target/Target'
+import Score from '../Score/Score.jsx'
 
 export const routes = [
     {
@@ -9,15 +9,15 @@ export const routes = [
         component: Home
     },
     {
-        path: '/homework',
-        component: Homework
+        path: '/course',
+        component: Course
     },
     {
         path: '/timetable',
         component: Timetable
     },
     {
-        path: '/target',
-        component: Target
+        path: '/score',
+        component: Score
     }
 ]

@@ -1,11 +1,9 @@
 import Sidebar from '../Sidebar.jsx'
 
-function Homework() {
+export default function Score() {
     return (
         <div>
             <Sidebar />
         </div>
     )
 }
-
-export default Homework;;
