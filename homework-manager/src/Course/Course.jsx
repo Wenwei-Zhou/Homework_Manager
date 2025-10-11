@@ -67,7 +67,7 @@ function Course() {
     courses.reduce((sum, c) => sum + c.progress, 0) / courses.length
   );
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={2} sx={{display:"flex", alignItems:"center"}}>
       <Grid size={3}>
         <Sidebar />
       </Grid>
