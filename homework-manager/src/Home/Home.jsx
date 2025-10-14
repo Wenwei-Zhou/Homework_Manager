@@ -6,7 +6,7 @@ import textbooks from "../Data/Textbook.js";
 import "./Home.css";
 import { useState } from "react";
 
-export default function StudyManager() {
+export default function Home() {
   const [showClass, setShowClass] = useState("English");
 
   return (
