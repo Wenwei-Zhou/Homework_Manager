@@ -1,0 +1,89 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: flex-start; */
+    height: 100%;
+    width: 100%;
+}
+
+.container .middle {
+    /* flex: 0 0 860px;
+    display: column;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px; */
+    display: flex;
+    flex: 0 0 960px;
+    flex-direction: column; /* 垂直排列 */
+    justify-content: space-around; /* 垂直方向平均分布 */
+    /* align-items: center;  */
+    height: 100%; /* 占满父容器 */
+    width: 100%;
+    padding: 20px;
+    gap: 70px;
+    /* margin-left: 0; */
+    /* box-sizing: border-box; */
+}
+
+.middle .title {
+    font-size: 6.5rem;   
+    font-weight: 7000;
+    color: #495160;
+    /* color: rgb(124, 117, 107); */
+    margin-bottom: 1rem;
+}
+
+.middle .class-option {
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+}
+
+.middle .class-option .class-button {
+    border-radius: 50px;
+    background: linear-gradient(135deg, #93d3f6, #f79fdf 100%);
+    color: white;
+}
+
+.middle .class-option .class-active {
+    border-radius: 50px;
+    background: white;
+    color: #667eea;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.middle .card {
+    display: flex;
+    justify-content: space-around;
+    max-width: 80%;
+}
+
+.right {
+    flex: 0 0 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background-color: MintCream;
+    border-radius: 25px;
+    /* border: 2px solid #e5e7eb; */
+    padding: 24px;
+    transition: all 0.3s ease;
+    height: 90vh;
+}
+
+.right .right-icon {
+    font-size: 40px;
+    min-width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: LightSteelBlue;
+    }
+
+.right .avatar-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
