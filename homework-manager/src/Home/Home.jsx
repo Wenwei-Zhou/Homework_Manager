@@ -1,8 +1,13 @@
 import { Grid, Card, CardActionArea, Button, Avatar, Box } from "@mui/material";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
 import { TbSettingsFilled, TbBellRinging } from "react-icons/tb";
 import StarIcon from "@mui/icons-material/Star";
 import Sidebar from "../Sidebar.jsx";
+import Calendar from "./Calendar.jsx";
 import textbooks from "../Data/Textbook.js";
+import messages from "../Data/Message.js";
 import "./Home.css";
 import { useState } from "react";
 
@@ -34,12 +39,13 @@ export default function Home() {
             </div>
 
             <div className="card">
+              <h3 style={{color: "#495160"}}>Online Tutorial</h3>
               <Grid container spacing={3}>
                 {textbooks.map(
                   (textbook) =>
                     textbook.id === showClass &&
                     textbook.tutorials.map((tutorial) => (
-                      <Grid size={6}>
+                      <Grid size={6} key={tutorial.title}>
                         <Card
                           sx={{
                             width: 350,
@@ -116,6 +122,19 @@ export default function Home() {
             <div className="avatar-name">
               <Avatar>S</Avatar>
               <p>Student</p>
+            </div>
+            <div className="message">
+              <h3>Message:</h3>
+              {messages.map((message) => (
+                <ListItem component="div" disablePadding>
+                  <ListItemButton>
+                    <ListItemText primary={message} />
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </div>
+            <div>
+              <Calendar />
             </div>
           </div>
         </div>
