@@ -45,9 +45,11 @@ const Sidebar = () => {
       </nav>
 
       <div className="sidebar-footer">
-        <button className="setting-button">
-          <span className="setting-icon"><TbSettingsFilled/></span>
+        <nav>
+        <button className="setting-button" textOnly = {true}>
+          <TbSettingsFilled className="setting-icon" />
         </button>
+        </nav>
       </div>
     </div>
   );
