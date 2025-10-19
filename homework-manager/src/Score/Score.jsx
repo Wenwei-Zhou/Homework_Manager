@@ -54,18 +54,18 @@ export default function Score() {
       Math.round((ProgrammingTotal / ProgrammingScore.length) * 10) / 10;
     console.log("ProgrammingScore: ", ProgrammingScore);
 
-    const ChemicalScore = grades.find((g) => g.id === "Chemical")?.score || [];
-    const ChemicalTotal = ChemicalScore.reduce((sum, score) => sum + score, 0);
-    const ChemicalAv =
-      Math.round((ChemicalTotal / ChemicalScore.length) * 10) / 10;
-    console.log("ChemicalScore: ", ChemicalScore);
+    const chemistryScore = grades.find((g) => g.id === "chemistry")?.score || [];
+    const chemistryTotal = chemistryScore.reduce((sum, score) => sum + score, 0);
+    const chemistryAv =
+      Math.round((chemistryTotal / chemistryScore.length) * 10) / 10;
+    console.log("chemistryScore: ", chemistryScore);
 
     const allGrades = [
       ...EnglishScores,
       ...MathScores,
       ...PhysicsScores,
       ...ProgrammingScore,
-      ...ChemicalScore,
+      ...chemistryScore,
     ];
 
     console.log("all: ", allGrades);
@@ -75,7 +75,7 @@ export default function Score() {
       MathAv,
       PhysicsAv,
       ProgrammingAv,
-      ChemicalAv,
+      chemistryAv,
       allGrades,
     };
   }, [grades]);
@@ -223,13 +223,13 @@ export default function Score() {
                 </div>
               </div>
 
-              <div className="stat-box chemical-average">
+              <div className="stat-box chemistry-average">
                 <div className="stat-icon-wrapper">
                   <TrendingUp className="stat-icon" />
                 </div>
                 <div className="stat-info">
-                  <div className="stat-label">Chemical Average</div>
-                  <div className="stat-value">{statistics.ChemicalAv}</div>
+                  <div className="stat-label">Chemistry Average</div>
+                  <div className="stat-value">{statistics.chemistryAv}</div>
                 </div>
               </div>
 
@@ -294,7 +294,7 @@ export default function Score() {
                       <option value={"Math"}>Math</option>
                       <option value={"Physics"}>Physics</option>
                       <option value={"Programming"}>Programming</option>
-                      <option value={"Chemical"}>Chemical</option>
+                      <option value={"chemistry"}>Chemistry</option>
                     </select>
                     
                     <input

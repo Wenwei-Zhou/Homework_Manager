@@ -63,7 +63,7 @@ export default function Home() {
                             backgroundColor: tutorial.color,
                           }}
                         >
-                          <CardActionArea href="https://www.youtube.com/">
+                          <CardActionArea href={tutorial.link}>
                             <Grid
                               container
                               spacing={2}

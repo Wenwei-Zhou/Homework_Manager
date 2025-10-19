@@ -21,7 +21,7 @@ function Course() {
     { id: 2, name: "Math", progress: 40, hours: 18, color: "green" },
     { id: 3, name: "Physics", progress: 80, hours: 32, color: "purple" },
     { id: 4, name: "Programming", progress: 75, hours: 22, color: "orange" },
-    { id: 5, name: "Chemical", progress: 67, hours: 77, color: "yellow" },
+    { id: 5, name: "Chemistry", progress: 67, hours: 77, color: "yellow" },
   ]);
 
   const [tasks, setTasks] = useState(taskList);
