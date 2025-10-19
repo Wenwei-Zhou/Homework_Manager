@@ -366,7 +366,7 @@ export default function Score() {
                     <TableBody>
                         
                       {scoreIndex.map((index) => (
-                        <TableRow>
+                        <TableRow key={index}>
                           <TableCell component="th" scope="row">
                             Test {index + 1}
                           </TableCell>

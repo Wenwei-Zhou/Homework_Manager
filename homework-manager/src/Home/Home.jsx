@@ -1,18 +1,27 @@
-import { Grid, Card, CardActionArea, Button, Avatar, Box } from "@mui/material";
+import { Grid, Card, CardActionArea, Avatar, Box } from "@mui/material";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import { TbSettingsFilled, TbBellRinging } from "react-icons/tb";
+import { TbLogin2 } from "react-icons/tb";
 import StarIcon from "@mui/icons-material/Star";
+import { IconButton } from "@mui/material";
 import Sidebar from "../Sidebar.jsx";
 import Calendar from "./Calendar.jsx";
+import Message from "../Message/Message.jsx";
+import UserProgressContext from "../Context/UserProgressContext.jsx";
 import textbooks from "../Data/Textbook.js";
 import messages from "../Data/Message.js";
 import "./Home.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 export default function Home() {
+  const userProgressCtx = useContext(UserProgressContext);
+
   const [showClass, setShowClass] = useState("English");
+
+  function handleShowLogin() {
+    userProgressCtx.showLogin();
+  }
 
   return (
     <Grid container spacing={2} sx={{ display: "flex", alignItems: "center" }}>
@@ -39,7 +48,7 @@ export default function Home() {
             </div>
 
             <div className="card">
-              <h3 style={{color: "#495160"}}>Online Tutorial</h3>
+              <h3>Online Tutorial</h3>
               <Grid container spacing={3}>
                 {textbooks.map(
                   (textbook) =>
@@ -49,12 +58,12 @@ export default function Home() {
                         <Card
                           sx={{
                             width: 350,
-                            height: 180,
+                            height: 200,
                             borderRadius: "25px",
                             backgroundColor: tutorial.color,
                           }}
                         >
-                          <CardActionArea>
+                          <CardActionArea href="https://www.youtube.com/">
                             <Grid
                               container
                               spacing={2}
@@ -116,8 +125,19 @@ export default function Home() {
 
           <div className="right">
             <div className="right-icon">
-              <TbBellRinging />
-              <TbSettingsFilled />
+              <Message />
+              <IconButton
+                sx={{
+                  background: "none",
+                  border: "none",
+                  "&:hover": { backgroundColor: "none", border: "none" },
+                  "&:active": { backgroundColor: "none", border: "none" },
+                  "&:focus": { outline: "none" },
+                }}
+                onClick={handleShowLogin}
+              >
+                <TbLogin2 className="setting-icon" />
+              </IconButton>
             </div>
             <div className="avatar-name">
               <Avatar>S</Avatar>
@@ -126,7 +146,7 @@ export default function Home() {
             <div className="message">
               <h3>Message:</h3>
               {messages.map((message) => (
-                <ListItem component="div" disablePadding>
+                <ListItem key={message} component="div" disablePadding>
                   <ListItemButton>
                     <ListItemText primary={message} />
                   </ListItemButton>
@@ -140,155 +160,5 @@ export default function Home() {
         </div>
       </Grid>
     </Grid>
-
-    // <Grid
-    //   container
-    //   spacing={2}
-    //   sx={{
-    //     width: "100%",
-    //     height: "100vh", // 整个页面满屏高
-    //     margin: 0,
-    //     overflow: "hidden", // 防止超出滚动
-    //   }}
-    // >
-    //   {/* 左边栏 */}
-    //   <Grid
-    //     item
-    //     xs={12}
-    //     md={2}
-    //     sx={{
-    //     //   height: "100%", // 与父级同高
-    //     //   backgroundColor: "#f5f5f5",
-    //     //   display: "flex",
-    //     //   flexDirection: "column",
-    //     //   alignItems: "center",
-    //     //   p: 2,
-    //     }}
-    //   >
-    //     <Sidebar />
-    //   </Grid>
-
-    //   {/* 中间主内容 */}
-    //   <Grid
-    //     item
-    //     xs={12}
-    //     md={6}
-    //     container
-    //     direction="column"
-    //     spacing={3}
-    //     sx={{
-    //       p: 3,
-    //       height: "100%", // 与父级同高
-    //       overflowY: "auto", // 内容多时中间部分可滚动
-    //     }}
-    //     className="tutorial"
-    //   >
-    //     <Typography variant="h4" className="title">
-    //       Study Manager
-    //     </Typography>
-
-    //     <Stack direction="row" spacing={2}>
-    //       <Button variant="contained">English</Button>
-    //       <Button variant="contained">Math</Button>
-    //       <Button variant="contained">Physics</Button>
-    //       <Button variant="contained">Programming</Button>
-    //       <Button variant="contained">Chemical</Button>
-    //     </Stack>
-
-    //     <Grid container spacing={3}>
-    //       <Grid item xs={6}>
-    //         <Card sx={{ width: "100%", maxHeight: 250 }}>
-    //           <CardActionArea>
-    //             <CardMedia
-    //               component="img"
-    //               height="140"
-    //               image="/static/images/cards/contemplative-reptile.jpg"
-    //               alt="green iguana"
-    //             />
-    //             <CardContent>
-    //               <Typography gutterBottom variant="h5">
-    //                 Lizard
-    //               </Typography>
-    //               <Typography variant="body2" sx={{ color: "text.secondary" }}>
-    //                 Lizards are a widespread group of squamate reptiles, with
-    //                 over 6,000 species, ranging across all continents except
-    //                 Antarctica.
-    //               </Typography>
-    //             </CardContent>
-    //           </CardActionArea>
-    //         </Card>
-    //       </Grid>
-
-    //       <Grid item xs={6}>
-    // <Card sx={{ width: "100%", maxHeight: 250 }}>
-    //   <CardActionArea>
-    //     <CardMedia
-    //       component="img"
-    //       height="140"
-    //       image="/static/images/cards/contemplative-reptile.jpg"
-    //       alt="green iguana"
-    //     />
-    //     <CardContent>
-    //       <Typography gutterBottom variant="h5">
-    //         Lizard
-    //       </Typography>
-    //       <Typography variant="body2" sx={{ color: "text.secondary" }}>
-    //         Lizards are a widespread group of squamate reptiles, with
-    //         over 6,000 species, ranging across all continents except
-    //         Antarctica.
-    //       </Typography>
-    //     </CardContent>
-    //   </CardActionArea>
-    // </Card>
-    //       </Grid>
-
-    //       <Grid item xs={6}>
-    //         <Button variant="contained" fullWidth>
-    //           Physics
-    //         </Button>
-    //       </Grid>
-    //       <Grid item xs={6}>
-    //         <Button variant="contained" fullWidth>
-    //           Programming
-    //         </Button>
-    //       </Grid>
-    //     </Grid>
-    //   </Grid>
-
-    //   {/* 右边栏 */}
-    //   <Grid
-    //     item
-    //     xs={12}
-    //     md={4}
-    //     sx={{
-    //       height: "100%", // 同样占满高度
-    //       display: "flex",
-    //       alignItems: "flex-start",
-    //       justifyContent: "center",
-    //       p: 2,
-    //       overflowY: "auto",
-    //     }}
-    //   >
-    //     <Card sx={{ width: "100%", maxHeight: 250 }}>
-    //       <CardActionArea>
-    //         <CardMedia
-    //           component="img"
-    //           height="140"
-    //           image="/static/images/cards/contemplative-reptile.jpg"
-    //           alt="green iguana"
-    //         />
-    //         <CardContent>
-    //           <Typography gutterBottom variant="h5">
-    //             Lizard
-    //           </Typography>
-    //           <Typography variant="body2" sx={{ color: "text.secondary" }}>
-    //             Lizards are a widespread group of squamate reptiles, with over
-    //             6,000 species, ranging across all continents except Antarctica.
-    //           </Typography>
-    //         </CardContent>
-    //       </CardActionArea>
-    //     </Card>
-    //   </Grid>
-    // </Grid>
   );
 }

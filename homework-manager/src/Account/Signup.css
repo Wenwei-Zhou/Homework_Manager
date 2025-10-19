@@ -1,0 +1,352 @@
+/* Signup Modal 样式 */
+.modal {
+  background: white;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  padding: 0;
+  width: 90%;
+  max-width: 600px; /* Signup 比 Login 稍宽 */
+  animation: fade-slide-up 0.3s ease-out forwards;
+  /* overflow: auto; */
+  max-height: 100vh;
+  /* overflow-y: auto; */
+}
+
+.modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.login-close {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem 1rem 0 1rem;
+}
+
+/* 表单容器 */
+form {
+  padding: 2.5rem;
+}
+
+/* 标题和副标题 */
+form h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin: 0 0 0.5rem 0;
+  text-align: center;
+  background: linear-gradient(135deg, #93d3f6, #f79fdf 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+form > p {
+  text-align: center;
+  color: #718096;
+  margin: 0 0 2rem 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* 分隔线 */
+hr {
+  border: none;
+  border-top: 2px solid #e2e8f0;
+  margin: 2rem 0;
+}
+
+/* 输入框容器 */
+.control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+/* 横向排列的输入框 */
+.control-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.control-row .control {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+/* Label 样式 */
+.control label {
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 0.875rem;
+  display: block;
+}
+
+/* Checkbox Label 特殊样式 */
+.control label[for="terms-and-conditions"] {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 500;
+  color: #4a5568;
+  cursor: pointer;
+  padding: 1rem;
+  background: #f7fafc;
+  border-radius: 10px;
+  border: 2px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.control label[for="terms-and-conditions"]:hover {
+  background: white;
+  border-color: #cbd5e0;
+}
+
+/* Input 样式 */
+.control input[type="email"],
+.control input[type="password"],
+.control input[type="text"] {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 2px solid #e2e8f0;
+  transition: all 0.2s ease;
+  outline: none;
+  background: #f7fafc;
+}
+
+.control input[type="email"]:focus,
+.control input[type="password"]:focus,
+.control input[type="text"]:focus {
+  border-color: #667eea;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.control input[type="email"]:hover,
+.control input[type="password"]:hover,
+.control input[type="text"]:hover {
+  border-color: #cbd5e0;
+  background: white;
+}
+
+/* Checkbox 样式 */
+.control input[type="checkbox"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  cursor: pointer;
+  accent-color: #667eea;
+  flex-shrink: 0;
+}
+
+/* 错误提示列表 */
+.error {
+  background: #fff5f5;
+  border: 2px solid #fc8181;
+  border-radius: 10px;
+  padding: 1rem 1rem 1rem 2.5rem;
+  margin: 1.5rem 0;
+  list-style-position: inside;
+}
+
+.error li {
+  color: #c53030;
+  font-size: 0.875rem;
+  margin: 0.25rem 0;
+  list-style-type: none;
+  position: relative;
+  padding-left: 0;
+}
+
+.error li::before {
+  content: "⚠";
+  position: absolute;
+  left: -1.5rem;
+  font-size: 1rem;
+}
+
+/* 按钮区域 */
+.form-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 0;
+}
+
+/* 通用按钮样式 */
+.button {
+  padding: 0.875rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 120px;
+}
+
+/* 主按钮 - Sign up */
+.button:not(.button-flat) {
+  background: linear-gradient(135deg, #93d3f6, #f79fdf 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.button:not(.button-flat):hover {
+  background: linear-gradient(135deg, #b5e0f8, #f9c6eb 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+.button:not(.button-flat):active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+}
+
+/* 次要按钮 - Reset */
+.button-flat {
+  background: transparent;
+  color: #667eea;
+  border: 2px solid #e2e8f0;
+  box-shadow: none;
+}
+
+.button-flat:hover {
+  background: #f7fafc;
+  border-color: #cbd5e0;
+  transform: translateY(-2px);
+}
+
+.button-flat:active {
+  transform: translateY(0);
+  background: #edf2f7;
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+/* 响应式设计 */
+@media (max-width: 640px) {
+  .modal {
+    width: 95%;
+    max-width: none;
+    margin: 1rem;
+    max-height: 95vh;
+  }
+
+  form {
+    padding: 1.5rem;
+  }
+
+  form h2 {
+    font-size: 1.5rem;
+  }
+
+  form > p {
+    font-size: 0.875rem;
+  }
+
+  /* 移动端输入框垂直排列 */
+  .control-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .control-row .control {
+    margin-bottom: 1.5rem;
+  }
+
+  /* 移动端按钮垂直排列 */
+  .form-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  /* 减小 checkbox label 的 padding */
+  .control label[for="terms-and-conditions"] {
+    padding: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  hr {
+    margin: 1.5rem 0;
+  }
+}
+
+/* 滚动条美化（针对长表单） */
+.modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 10px;
+}
+
+.modal::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}
+
+/* 动画 */
+@keyframes fade-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 输入框验证状态（可选） */
+.control input:invalid:not(:placeholder-shown) {
+  border-color: #fc8181;
+}
+
+.control input:valid:not(:placeholder-shown) {
+  border-color: #48bb78;
+}
+
+/* 加载状态（可选） */
+.button.loading {
+  pointer-events: none;
+  opacity: 0.7;
+  position: relative;
+}
+
+.button.loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 2px solid white;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@keyframes spin {
+  to { transform: translateX(-50%) rotate(360deg); }
+}

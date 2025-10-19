@@ -50,14 +50,14 @@ const textbooks = [
     id: "Programming",
     image: Programming,
     tutorials: [
-      { title: "Web Application", color: "HoneyDew", rate: 4, students: Math.floor(Math.random() * (1000 - 100 + 1) + 100) },
+      { title: "Frontend Development", color: "HoneyDew", rate: 4, students: Math.floor(Math.random() * (1000 - 100 + 1) + 100) },
       {
         title: "C# Object-Oriented Development",
         color: "Ivory",
         rate: 5,
         students: Math.floor(Math.random() * (1000 - 100 + 1) + 100)
       },
-      { title: "AWS CCP", color: "AliceBlue", rate: 2.2, students: Math.floor(Math.random() * (1000 - 100 + 1) + 100) },
+      { title: "Backend Development", color: "AliceBlue", rate: 4.8, students: Math.floor(Math.random() * (1000 - 100 + 1) + 100) },
       { title: "Postgre Database", color: "LavenderBlush", rate: 3.3, students: Math.floor(Math.random() * (1000 - 100 + 1) + 100) },
     ],
   },
