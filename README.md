@@ -1,5 +1,5 @@
 📚 
-### Study Manager
+# Study Manager
 
 A React-based web application designed to help students organize their learning — from online courses and assignments to timetables and performance tracking.
 
