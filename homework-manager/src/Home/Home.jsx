@@ -147,9 +147,9 @@ export default function Home() {
               <h3>Message:</h3>
               {messages.map((message) => (
                 <ListItem key={message} component="div" disablePadding>
-                  <ListItemButton>
-                    <ListItemText primary={message} />
-                  </ListItemButton>
+                  {/* <ListItemButton> */}
+                    <ListItemText sx={{padding: '5px'}} primary={message} />
+                  {/* </ListItemButton> */}
                 </ListItem>
               ))}
             </div>
